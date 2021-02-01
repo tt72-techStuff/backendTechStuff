@@ -5,6 +5,7 @@ module.exports = {
   find,
   findBy,
   findById,
+  isValid,
 };
 
 function find() {
@@ -31,4 +32,8 @@ function findById(id) {
     .select("u.id", "u.username", "u.email", "r.name as role")
     .where("u.id", id)
     .first();
+}
+
+function isValid(user) {
+  return Boolean(user.username && user.email && user.password && typeof user.password === "string");
 }

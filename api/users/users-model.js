@@ -5,7 +5,8 @@ module.exports = {
   find,
   findBy,
   findById,
-  isValid,
+  isValidRegister,
+  isValidLogin,
 };
 
 function find() {
@@ -34,6 +35,10 @@ function findById(id) {
     .first();
 }
 
-function isValid(user) {
+function isValidRegister(user) {
   return Boolean(user.username && user.email && user.password && typeof user.password === "string");
+}
+
+function isValidLogin(user) {
+  return Boolean(user.username && user.password && typeof user.password === "string");
 }

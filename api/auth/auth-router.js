@@ -7,7 +7,7 @@ const Users = require("../users/users-model.js");
 router.post("/register", (req, res) => {
   const credentials = req.body;
 
-  if (Users.isValid(credentials)) {
+  if (Users.isValidRegister(credentials)) {
     const rounds = process.env.BCRYPT_ROUNDS || 8;
     const hash = bcryptjs.hashSync(credentials.password, rounds);
     credentials.password = hash;
@@ -28,7 +28,7 @@ router.post("/register", (req, res) => {
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
 
-  if (Users.isValid(req.body)) {
+  if (Users.isValidLogin(req.body)) {
     Users.findBy({ username: username })
       .then(([user]) => {
         if (user && bcryptjs.compareSync(password, user.password)) {
@@ -43,7 +43,7 @@ router.post("/login", (req, res) => {
       });
   } else {
     res.status(400).json({
-      message: "please provide username, email, and password",
+      message: "please provide username and password",
     });
   }
 });

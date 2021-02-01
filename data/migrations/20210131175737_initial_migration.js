@@ -18,7 +18,7 @@ exports.up = function(knex) {
       .onUpdate("CASCADE")
       .defaultTo(2);
   })
-  .createTable("category", () => {
+  .createTable("category", tbl => {
     tbl.increments();
     tbl.string("name", 256).notNullable();
     tbl
@@ -28,7 +28,7 @@ exports.up = function(knex) {
       .onDelete("RESTRICT")
       .onUpdate("CASCADE")
   })
-  .createTable("posts", () => {
+  .createTable("posts", tbl => {
     tbl.increments();
     tbl
       .integer("user_id")

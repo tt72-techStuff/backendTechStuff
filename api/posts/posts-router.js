@@ -22,7 +22,7 @@ router.get('/:id',  (req, res) => {
   })
 });
 
-router.post('/:id',  (req, res, next) => {
+router.post('/',  (req, res, next) => {
   Posts.insert(req.body)
     .then(newPost => {
       res.status(200).json(newPost)

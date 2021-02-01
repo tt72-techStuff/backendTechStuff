@@ -1,4 +1,4 @@
-import db from "../../data/dbConfig";  // err
+const db = require('../../data/dbConfig.js');
 
 export default {
   add,

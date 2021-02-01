@@ -11,7 +11,7 @@ exports.up = function(knex) {
     tbl.string("password", 256).notNullable();
     tbl.string("email", 256).notNullable();
     tbl
-      .integer("role")
+      .integer("role_id")
       .unsigned()
       .references("roles.id")
       .onDelete("RESTRICT")
@@ -21,19 +21,19 @@ exports.up = function(knex) {
   .createTable("category", tbl => {
     tbl.increments();
     tbl.string("name", 256).notNullable();
-    tbl
-      .integer("post_id")
-      .unsigned()
-      .references("posts.id")
-      .onDelete("RESTRICT")
-      .onUpdate("CASCADE")
+    // tbl
+    //   .integer("post_id")
+    //   .unsigned()
+    //   .references("posts.id")
+    //   .onDelete("RESTRICT")
+    //   .onUpdate("CASCADE")
   })
   .createTable("posts", tbl => {
     tbl.increments();
     tbl
       .integer("user_id")
       .unsigned()
-      .references("user.id")
+      .references("users.id")
       .onDelete("RESTRICT")
       .onUpdate("CASCADE")
     tbl
@@ -50,8 +50,8 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema
-  .dropTableIfExists("roles")
-  .dropTableIfExists("users")
   .dropTableIfExists("category")
+  .dropTableIfExists("users")
   .dropTableIfExists("posts")
+  .dropTableIfExists("roles")
 };

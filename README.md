@@ -1,8 +1,8 @@
 # backendTechStuff
 
-Posts Endpoints: 
+## Posts Endpoints: 
 
-/api/posts
+### /api/posts
 
 Get('/') - returns array of all posts
 
@@ -15,16 +15,16 @@ Delete('/id') - returns message confirming deletion
 Put('/id')(requires Body & ID) - returns updated post
 
 
-User Endpoints: 
+## User Endpoints: 
 
-/api/users
+### /api/users
 
 Get('/') - returns array of all posts (MUST BE ADMIN)
 
 
-Auth Endpoints:
+## Auth Endpoints:
 
-/api/auth
+### /api/auth
 
 Post('/register')(requires body) - returns newly created user
 

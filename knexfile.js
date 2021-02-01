@@ -23,21 +23,18 @@ module.exports = {
       directory: './data/seeds',
     },
   },
-
-
-  // production: {
-  //   client: "pg",
-  //   connection: pgConnection,
-  //   pool: {
-  //     min: 2,
-  //     max: 10,
-  //   },
-  //   migrations: {
-  //     directory: "./database/migrations",
-  //   },
-  //   seeds: {
-  //     directory: "./database/seeds",
-  //   },
-  // },
-
 };
+// production: {
+//   client: "pg",
+//   connection: pgConnection,
+//   pool: {
+//     min: 2,
+//     max: 10,
+//   },
+//   migrations: {
+//     directory: "./database/migrations",
+//   },
+//   seeds: {
+//     directory: "./database/seeds",
+//   },
+// },

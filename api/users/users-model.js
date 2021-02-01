@@ -1,6 +1,6 @@
-const db = require("../../data/dbConfig");  // err
+import db from "../../data/dbConfig";  // err
 
-module.exports = {
+export default {
   add,
   find,
   findBy,

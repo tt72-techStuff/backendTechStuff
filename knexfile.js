@@ -11,7 +11,7 @@ const sharedConfig = {
 module.exports = {
   development: {
     ...sharedConfig,
-    connection: process.env.DEV_DATABASE_URL
+    connection: 'postgresql://postgres:Harperr23@localhost/build_week'
   },
   production: {
     ...sharedConfig,

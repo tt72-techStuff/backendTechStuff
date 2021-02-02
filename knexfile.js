@@ -15,7 +15,7 @@ const sharedConfig = {
   seeds: { directory: './data/seeds' },
 }
 module.exports = {
-  development: { ...sharedConfig, localConnection},
+  development: { ...sharedConfig, },
   production: {
     ...sharedConfig,
     pool: { min: 2, max: 10 },

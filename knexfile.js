@@ -1,5 +1,5 @@
 const pg = require('pg')
-const localConnection = 'postgres://postgres:Harperr23@localhost:5432/build_week'
+const localConnection = 'postgresql://postgres:Harperr23@localhost:5432/build_week'
 let connection
 if (process.env.DATABASE_URL) {
   pg.defaults.ssl = { rejectUnauthorized: false }
@@ -14,7 +14,7 @@ const sharedConfig = {
   seeds: { directory: './data/seeds' },
 }
 module.exports = {
-  development: { ...sharedConfig, },
+  development: { ...sharedConfig },
   production: {
     ...sharedConfig,
     pool: { min: 2, max: 10 },

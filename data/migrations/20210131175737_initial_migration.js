@@ -44,14 +44,15 @@ exports.up = function(knex) {
       .onUpdate("CASCADE")
     tbl.string("name", 256).notNullable();
     tbl.string("description", 256).notNullable();
+    tbl.string("image_url", 256)
   })
 };
 
 
 exports.down = function(knex) {
   return knex.schema
+  .dropTableIfExists("posts")
   .dropTableIfExists("category")
   .dropTableIfExists("users")
-  .dropTableIfExists("posts")
   .dropTableIfExists("roles")
 };

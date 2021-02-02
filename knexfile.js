@@ -1,6 +1,5 @@
-require("dotenv").config();
 const pg = require('pg')
-const localConnection = process.env.REES
+const localConnection = 'postgres://postgres:Harperr23@localhost:5432/build_week'
 let connection
 if (process.env.DATABASE_URL) {
   pg.defaults.ssl = { rejectUnauthorized: false }

@@ -10,8 +10,8 @@ if (process.env.DATABASE_URL) {
 const sharedConfig = {
   client: 'pg',
   connection,
-  migrations: { directory: './api/data/migrations' },
-  seeds: { directory: './api/data/seeds' },
+  migrations: { directory: './data/migrations' },
+  seeds: { directory: './data/seeds' },
 }
 module.exports = {
   development: { ...sharedConfig },

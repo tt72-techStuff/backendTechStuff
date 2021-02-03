@@ -1,5 +1,5 @@
 const pg = require('pg')
-const localConnection = 'postgresql://postgres:Harperr23@localhost/build_week'
+const localConnection = 'postgresql://postgres:Harperr23@localhost:5432/build_week'
 let connection
 if (process.env.DATABASE_URL) {
   pg.defaults.ssl = { rejectUnauthorized: false }

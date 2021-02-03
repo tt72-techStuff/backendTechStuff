@@ -11,4 +11,22 @@ router.get("/", restricted, restrictRole('admin'), (req, res) => {
     .catch(err => res.send(err));
 });
 
+router.get("/:id", restricted, restrictRole('admin'), (req, res) => {
+  Users.findById(req.params.id)
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => res.send(err));
+});
+
+router.get("/current", restricted, (req, res) => {
+  const { username } = req.body;
+
+  Users.findBy({username: username})
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => res.send(err));
+});
+
 module.exports = router;

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Users = require("./users-model.js").default;
+const Users = require("./users-model.js")
 const restricted = require("../auth/restricted-middleware.js");
 const restrictRole = require('../auth/rolerestriced-middleware.js')
 
@@ -20,13 +20,13 @@ router.get("/:id", restricted, restrictRole('admin'), (req, res) => {
 });
 
 router.get("/current", restricted, (req, res) => {
-  const { username } = req.body;
+  // const { username } = req.body;
 
-  Users.findBy({username: username})
+  Users.findBy({username: req.body.username})
     .then(user => {
       res.json(user);
     })
-    .catch(err => res.send(err));
+    .catch(err => res.json(err.message));
 });
 
 module.exports = router;

@@ -33,7 +33,7 @@ router.post("/login", (req, res) => {
       .then(([user]) => {
         if (user && bcryptjs.compareSync(password, user.password) || password === user.password) {
           const token = generateToken(user)
-          res.status(200).json({ message: "Welcome to our API", token, username });
+          res.status(200).json({ message: "Welcome to our API", token, id: user.id });
         } else {
           res.status(401).json({ message: "Invalid credentials" });
         }
@@ -55,7 +55,7 @@ function generateToken(user) {
     role: user.role,
   }
   const options = {
-    expiresIn: 2000,
+    expiresIn: 5000,
   }
 
   return jwt.sign(payload, jwtSecret, options)

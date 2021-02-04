@@ -22,6 +22,7 @@ function getById(id) {
     .join("category as c", "c.id", "p.category_id")
     .select("p.id", "c.name as category", "p.name", "p.image_url", "p.description", "u.email")
     .where("p.id", id)
+    .first()
 }
 
 function getUserPosts(id) {
